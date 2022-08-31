@@ -1,0 +1,85 @@
+jenkins:
+  securityRealm:
+    local:
+      users:
+       - id: "panda"
+         password: "panda"
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:panda"
+  numExecutors: 0
+
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          id: "artifactory"
+          username: "admin"
+          password: "password"
+          scope: GLOBAL
+      - basicSSHUserPrivateKey:
+          id: "jenkins_agent"
+          username: "jenkins"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                -----BEGIN OPENSSH PRIVATE KEY-----
+                b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+                NhAAAAAwEAAQAAAYEAm58LeaL8EyUVwefgEg01/ebukNTlXFA5JZEAr1Q51nCkrDKz3bzT
+                sJ9lzc3JaUhjG/SoW6J0h52+d4iWglARAjloc9Uo8awqMIp5R23O38aQikwsMqXVMu1Mng
+                MZqD6vyhR/+F1ifuiAKU5L9ObOrwNhKFIU36AMviakAPI3i5Dd7aAe12t5EVBUgrpTAkTl
+                kCAgdlMn/nBs+MjDV7VzqacqZF71ix7WML0ztGlD8XSo3V+YiKNjjKgrNJuPSlMOv7ABLR
+                pkNCtO0Yu1bQIEpaX/ugdm3SIMu2USLrqewxpEaZPcQmrrnHIp4zNzB3l+IcZv/BpUZzYM
+                6tFJWnoOTw2WKw4UVgTmrSYx4kMa+q34HqyZY+3GKRTfgG2YuxC/nL9sx3P8cDrDPkRjBo
+                b+R3TnAoD0/pE5bAGPDMMxvQDu8mWwwg83LAe0hBLnBdHW72yTfYVQDaWL2WvVIO++IJDA
+                7+BtaE/RadSh+dOZz0k6oPdeAxTFq1c/8UNSsLvvAAAFiIRrbqWEa26lAAAAB3NzaC1yc2
+                EAAAGBAJufC3mi/BMlFcHn4BINNf3m7pDU5VxQOSWRAK9UOdZwpKwys92807CfZc3NyWlI
+                Yxv0qFuidIedvneIloJQEQI5aHPVKPGsKjCKeUdtzt/GkIpMLDKl1TLtTJ4DGag+r8oUf/
+                hdYn7ogClOS/Tmzq8DYShSFN+gDL4mpADyN4uQ3e2gHtdreRFQVIK6UwJE5ZAgIHZTJ/5w
+                bPjIw1e1c6mnKmRe9Yse1jC9M7RpQ/F0qN1fmIijY4yoKzSbj0pTDr+wAS0aZDQrTtGLtW
+                0CBKWl/7oHZt0iDLtlEi66nsMaRGmT3EJq65xyKeMzcwd5fiHGb/waVGc2DOrRSVp6Dk8N
+                lisOFFYE5q0mMeJDGvqt+B6smWPtxikU34BtmLsQv5y/bMdz/HA6wz5EYwaG/kd05wKA9P
+                6ROWwBjwzDMb0A7vJlsMIPNywHtIQS5wXR1u9sk32FUA2li9lr1SDvviCQwO/gbWhP0WnU
+                ofnTmc9JOqD3XgMUxatXP/FDUrC77wAAAAMBAAEAAAGAPhXLnDF7459t+LgrWshOfAc/si
+                RdhOC0i9o3rbsqf/TcnZ50x8fnpJVTJjItYoVwlNyctkIvv1Mdg87ITSDoSDzjASNPfGs1
+                Qbxc+jRCzmAHlkUhdOtYDUNCx99wwwCPXU2kaE/JVdwoFVKZVxEl8AinIFDu5vCRZONBlu
+                cLZfDbuUuiQkssN84WiTkQmN0nwMIwcURntkjgELj3xewsQsjgTr7bsy8QQM2a7ST56ECk
+                hfz3e7vDoYAODKTrG7najx496qKK7ctaSslY0zvov/w7dL7ryiiDBiUO+2ZqmHO8P4cpdT
+                fiGfvfHdFacNcqaLj8zeywWcDpVQ3gOAv01yPYalAOnO0RB32is8mPW4pUhTpJ9ZnYbw0h
+                21PJRc1WCo3pLKPdIS7DvR5GPHhL0IYTV9yklWnj85BbXlinW5M4oOKcGQ8MCIhXN/1pNQ
+                Ceqs17O0MBu6e+CBEJRwYY1iab8/Vy2gZMvLFW4tQFx86Mz25412+OHW/C+XAiZncBAAAA
+                wE+gVTm0VrJur7k+S4P6EaWZ1ipJnrBYrcJ2bJsnw54Zsoz/F92b8vjelax+d5U3dEzGyn
+                4OJhOA8XSn19HbIuvhaSW9TWDZ+sJTagJN21vyoTi9is5VTFr4Ih5gKGP+zGN4G8aqWiQS
+                RoCMVR3c61ihXSIUj2CzPMqs7tQB19cZjOAKhIoGeCRBCb+B+X5lCVe6NRuPhye4+hOPYP
+                upchCOmaVK0JOm5OxKEBD689deweAmPhmlOafQ3sTsnMIpCQAAAMEAzthEhGoX4lTZUla0
+                MFmN/LtXK3C28aRDOCcbu32TYr9of1cIrgqD9HR454Ecdre+QnZqZq5tH7jCWwvgK7T/h8
+                YnWyS1KiQxto4l+8B2I6vpUEo24L13Y7ITKZDcAZxYzmlxFXvGjS/UAweQJdSlu89EgcAJ
+                VaUIIQyUr9HRqoiXGHHsGqjKah6GNMQ4x5wY0DsYAkajwUkpABAuOnDiYQWPa/0pqpKVIK
+                kRfHXXKWPeJBPD0PDn3KBn98tBC2RBAAAAwQDAmoMtGZi/C7PYgY5XdYetjEvsRFGPw8NM
+                cygqTNPuJb6vjhpnvDux9Wq0h6BjlY87GdeTaNOJMgaScSy7la3p1c0FcfMWOQsUuYLFWt
+                dkBghPJl91bJn1Xe7RvrYrGstXw+bLocG206oCSsDLwgdPVZ9j1KK3DnLDDW1dAFvSDt7j
+                408zxlQWe7zTrYaasvSWBHtWSmSj1yGfRC3cfr4FEQSlfzXhzHGKQtoZHYY39Rl1KTwGd7
+                PuQzm3wme0VC8AAAANcGFuZGFAdmFncmFudAECAwQFBg==
+                -----END OPENSSH PRIVATE KEY-----
+          scope: GLOBAL
+tool:
+  sonarRunnerInstallation:
+    installations:
+    - name: "SonarQube"
+      properties:
+      - installSource:
+          installers:
+          - sonarRunnerInstaller:
+              id: "4.7.0.2747"
+
+unclassified:
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+    - name: "SonarQube"
+      serverUrl: "http://192.168.44.44:9000"
+      triggers:
+        skipScmCause: false
+        skipUpstreamCause: false
